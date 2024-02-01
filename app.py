@@ -4,19 +4,11 @@ from send_mail import send_mail
 
 app = Flask(__name__)
 
-ENV = 'dev'
-
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.debug = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/showroom'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
-
 
 class Feedback(db.Model):
     __tablename__ = 'feedback'
@@ -32,6 +24,7 @@ class Feedback(db.Model):
         self.rating = rating
         self.comments = comments
 
+db.create_all()
 
 @app.route('/')
 def index():

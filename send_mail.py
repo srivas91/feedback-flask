@@ -4,13 +4,18 @@ from email.mime.text import MIMEText
 
 def send_mail(customer, dealer, rating, comments):
     port = 2525
-    smtp_server = 'smtp.mailtrap.io'
-    login = ''
-    password = ''
+    # smtp_server = 'smtp.mailtrap.io'
+    smtp_server = "smtp.gmail.com"
+    login = 'srini.pit21@gmail.com'
+    # password = ''
+    password = 'xfozzuakeoegfoex'
     message = f"<h3>New Feedback Submission</h3><ul><li>Customer: {customer}</li><li>Dealer: {dealer}</li><li>Rating: {rating}</li><li>Comments: {comments}</li></ul>"
 
-    sender_email = 'email1@example.com'
-    receiver_email = 'email2@example.com'
+    # sender_email = 'email1@example.com'
+    # receiver_email = 'email2@example.com'
+    sender_email = 'srini.pit21@gmail.com'
+
+    receiver_email = 'akashkutty03@gmail.com'
     msg = MIMEText(message, 'html')
     msg['Subject'] = 'Lexus Feedback'
     msg['From'] = sender_email
